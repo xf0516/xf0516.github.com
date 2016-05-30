@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/java/" style="font-size: 10px;">-java</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+						<a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -202,6 +202,66 @@
 
       <div class="body-wrap">
   
+    <article id="post-post3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/30/post3/" class="article-date">
+  	<time datetime="2016-05-30T03:46:56.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/30/post3/">java递归读取注解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>({ElementType.TYPE})</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Controller {</span><br><span class="line"></span><br><span class="line">true<span class="comment">/**</span><br><span class="line">true * The value may indicate a suggestion for a logical component name,</span><br><span class="line">true * to be turned into a Spring bean in case of an autodetected component.</span><br><span class="line">true * <span class="doctag">@return</span> the suggested component name, if any</span><br><span class="line">true */</span></span><br><span class="line">true<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5728;spring&#x4E2D;&#x6211;&#x53D1;&#x73B0;<code>@Controller</code>&#x6709;&#x4E2A;<code>@Component</code>&#x6CE8;&#x89E3;&#x3002;spring&#x626B;&#x63CF;&#x662F;&#x8BFB;&#x53D6;&#x5230;Controller&#x65F6;&#x662F;&#x5982;&#x4F55;&#x89E3;&#x6790;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;Component&#x5462;<br>&#x6211;&#x81EA;&#x5DF1;&#x4E3A;&#x6B64;&#x505A;&#x4E86;&#x4E2A;&#x5B9E;&#x9A8C;&#x6765;&#x5B9E;&#x73B0;java&#x6CE8;&#x89E3;&#x9012;&#x5F52;&#x8BFB;&#x53D6;&#x3002;</p>
+<figure class="highlight java"><figcaption><span>main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; exclude=Lists.newLinkedList();</span><br><span class="line">   <span class="keyword">static</span> {</span><br><span class="line">       exclude.add(<span class="string">&quot;java.lang.annotation.Target&quot;</span>);</span><br><span class="line">       exclude.add(<span class="string">&quot;java.lang.annotation.Documented&quot;</span>);</span><br><span class="line">       exclude.add(<span class="string">&quot;java.lang.annotation.RUNTIME&quot;</span>);</span><br><span class="line">   }</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isJdkAnnotaion</span><span class="params">(Class&lt;?&gt; clazz)</span></span>{</span><br><span class="line">       <span class="keyword">return</span> exclude.contains(clazz.getName());</span><br><span class="line">   }</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">recurse</span><span class="params">(Class&lt;?&gt; clazz)</span></span>{</span><br><span class="line">       <span class="comment">//&#x83B7;&#x53D6;class&#x7684;&#x6240;&#x6709;&#x6CE8;&#x89E3;</span></span><br><span class="line">       Annotation[] allAnnotation=clazz.getAnnotations();</span><br><span class="line">       <span class="keyword">for</span>(Annotation annotation:allAnnotation){</span><br><span class="line">           Class&lt;?&gt; type=annotation.annotationType();</span><br><span class="line">           <span class="keyword">if</span>(isJdkAnnotaion(type)){</span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">           }</span><br><span class="line">           System.out.println(type);</span><br><span class="line">           recurse(type);</span><br><span class="line">       }</span><br><span class="line">   }</span><br></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recurse(Controller.class);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-post2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -239,7 +299,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">-java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       
