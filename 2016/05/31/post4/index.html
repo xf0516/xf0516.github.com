@@ -4,20 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Xiafei | 阿飞的小站</title>
+  <title>分布式锁的使用场景 | 阿飞的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="&amp;#x62FF;MySQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;MySQL&amp;#x5B58;&amp;#x50A8;&amp;#x5F15;&amp;#x64CE;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#x4E09;&amp;#x79CD;&amp;#x7C7B;&amp;#x578B;&amp;#xFF08;&amp;#x7EA7;&amp;#x522B;&amp;#xFF09;&amp;#x7684;&amp;#x9">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xiafei">
-<meta property="og:url" content="http://xf0516.github.io/2016/05/27/Xiafei/index.html">
+<meta property="og:title" content="分布式锁的使用场景">
+<meta property="og:url" content="http://xf0516.github.io/2016/05/31/post4/index.html">
 <meta property="og:site_name" content="阿飞的小站">
-<meta property="og:description">
-<meta property="og:image" content="http://xf0516.github.io/2016/05/27/Xiafei/QQ截图20160525154400.png">
-<meta property="og:updated_time" content="2016-05-27T09:08:04.072Z">
+<meta property="og:description" content="&amp;#x62FF;MySQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;MySQL&amp;#x5B58;&amp;#x50A8;&amp;#x5F15;&amp;#x64CE;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#x4E09;&amp;#x79CD;&amp;#x7C7B;&amp;#x578B;&amp;#xFF08;&amp;#x7EA7;&amp;#x522B;&amp;#xFF09;&amp;#x7684;&amp;#x9">
+<meta property="og:updated_time" content="2016-05-31T02:43:13.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiafei">
-<meta name="twitter:description">
-<meta name="twitter:image" content="http://xf0516.github.io/2016/05/27/Xiafei/QQ截图20160525154400.png">
+<meta name="twitter:title" content="分布式锁的使用场景">
+<meta name="twitter:description" content="&amp;#x62FF;MySQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;MySQL&amp;#x5B58;&amp;#x50A8;&amp;#x5F15;&amp;#x64CE;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#x4E09;&amp;#x79CD;&amp;#x7C7B;&amp;#x578B;&amp;#xFF08;&amp;#x7EA7;&amp;#x522B;&amp;#xFF09;&amp;#x7684;&amp;#x9">
   
     <link rel="alternative" href="/atom.xml" title="阿飞的小站" type="application/atom+xml">
   
@@ -203,11 +201,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Xiafei" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-post4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/27/Xiafei/" class="article-date">
-  	<time datetime="2016-05-27T05:20:23.000Z" itemprop="datePublished">2016-05-27</time>
+      <a href="/2016/05/31/post4/" class="article-date">
+  	<time datetime="2016-05-31T01:58:33.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
   
@@ -220,7 +218,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Xiafei
+      分布式锁的使用场景
     </h1>
   
 
@@ -229,7 +227,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
 	</div>
 
         
@@ -240,7 +238,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2016/05/27/Xiafei/QQ&#x622A;&#x56FE;20160525154400.png" alt=""></p>
+        <p>  &#x62FF;MySQL&#x6570;&#x636E;&#x5E93;&#x6765;&#x8BF4;&#xFF0C;MySQL&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x4F7F;&#x7528;&#x4E86;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#xFF08;&#x7EA7;&#x522B;&#xFF09;&#x7684;&#x9501;&#x5B9A;&#x673A;&#x5236;&#xFF1A;&#x884C;&#x7EA7;&#x9501;&#x5B9A;&#xFF0C;&#x9875;&#x7EA7;&#x9501;&#x5B9A;&#xFF0C;&#x548C;&#x8868;&#x7EA7;&#x9501;&#x5B9A;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x539F;&#x59CB;&#x6570;&#x636E;&#x662F;&#xFF1A;<br>id name  count<br>1  &#x5F20;&#x4E09;  25</p>
+<hr>
+<p>3.A&#x5199;  <code>update table set count=count+1 where id=1</code>    &#x5F20;&#x4E09; 13 26<br>4.B&#x5199;  <code>update table set count=count+1 where id=1</code>    &#x5F20;&#x4E09; 13 26&#xFF08;&#x8FD9;&#x91CC;&#x4F1A;&#x662F;26&#x5417;&#xFF1F;&#xFF09;</p>
+<hr>
+<p>&#x4F9D;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x6765;&#x770B;&#x3002;&#x6700;&#x4F4E;&#x7EA7;&#x522B;&#x4E5F;&#x662F;&#x4E2A;&#x884C;&#x9501;&#x3002;<br>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4E0D;&#x7BA1;&#x4EC0;&#x4E48;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x6700;&#x4F4E;&#x4E5F;&#x662F;&#x4E2A;&#x884C;&#x9501;&#x3002;&#x6240;&#x4EE5;&#x4E24;&#x4E2A;   update&#x540C;&#x4E00;&#x884C;&#x3002;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x52A0;&#x9501;&#xFF0C;&#x6CA1;&#x6709;&#x5E76;&#x53D1;&#x95EE;&#x9898;&#x7684;&#x3002;<br>&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x573A;&#x666F;B&#x64CD;&#x4F5C;&#x540E;&#x3002;<strong>&#x5F20;&#x4E09;&#x662F;27</strong>&#x3002;&#x5E76;&#x4E0D;&#x662F;26</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x573A;&#x666F;<br> <blockquote><p>&#x5982;&#x679C;&#x539F;&#x59CB;&#x6570;&#x636E;&#x662F;&#xFF1A;<br>&#x5F20;&#x4E09; 13 25<br>A&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;&#x5F20;&#x4E09; 12 25<br>B&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;&#x5F20;&#x4E09; 13 26<br>&#x2014;&#x64CD;&#x4F5C;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x6570;&#x636E;&#x5E93;&#x503C;<br>1.A&#x8BFB;  &#x5F20;&#x4E09; 13 25                              &#x5F20;&#x4E09; 13 25<br>2.B&#x8BFB;  &#x5F20;&#x4E09; 13 25                              &#x5F20;&#x4E09; 13 25<br>3.A&#x5199;  &#x5F20;&#x4E09; 12 25                               &#x5F20;&#x4E09; 12 25<br>4.B&#x5199;  &#x5F20;&#x4E09; 13 26                              &#x5F20;&#x4E09; 13 36</p>
+<p>&#x7ED3;&#x679C;&#xFF1A;A&#x7684;&#x5199;&#x64CD;&#x4F5C; &#x65E0;&#x6548;&#x4E86;</p>
+</blockquote><br><code>A&#x8BFB;&#x53BB;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;,&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;update&#x6570;&#x636E;&#x5E93;&#x3002;</code><br><code>B&#x4E5F;&#x8BFB;&#x53BB;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;,&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;update&#x6570;&#x636E;&#x5E93;&#x3002;</code><br>&#x8FD9;&#x4E24;&#x6B65;&#x8981;&#x662F;&#x5728;&#x591A;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x3002;&#x6B64;&#x65F6;&#x6570;&#x636E;&#x4F1A;&#x9519;&#x4E71;&#x3002;<br>&#x8FD9;&#x662F;&#x5C31;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x9501;&#x6765;&#x8BA9;&#x8DDF;<code>&#x8FD9;&#x6761;&#x6570;&#x636E;</code>&#x6709;&#x5173;&#x7684;&#x64CD;&#x4F5C;&#x540C;&#x6B65;&#x53BB;&#x6267;&#x884C;&#x4E86;&#x3002;  </p>
+<p>&#x4E00;&#x822C;&#x8FD9;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x662F;&#x52A0;&#x5728;<code>serviec</code>&#x5C42;&#x4E2D;<br>&#x8981;&#x662F;&#x8FD9;&#x4E2A;&#x9501;&#x52A0;&#x5728;<code>DAO</code>&#x4E2D;&#x5355;&#x6761;sql&#x7684;&#x3002;&#x6839;&#x636E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B58;&#x50A8;&#x7D22;&#x5F15;&#x6765;&#x770B;&#xFF0C;&#x672C;&#x8EAB;&#x5BF9;&#x5355;&#x884C;&#x6570;&#x636E;&#x90FD;&#x662F;&#x52A0;&#x9501;&#x4E86;&#x7684;&#x3002;<br>&#x8FD9;&#x65F6;&#x53BB;&#x52A0;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x662F;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;  </p>
+<p>&#x6709;&#x4EFB;&#x4F55;&#x7591;&#x95EE;&#x8BF7;&#x7559;&#x8A00;&#xFF0C;&#x6211;&#x4F1A;&#x5728;&#x7B2C;&#x4E00;&#x65F6;&#x95F4;&#x89E3;&#x7B54;&#x3002;</p>
 
       
     </div>
@@ -250,18 +258,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/27/post1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          MarkDown学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/27/imgs/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">imgs</div>
+    <a href="/2016/05/30/post3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java递归读取注解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -296,7 +295,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Xiafei" data-title="Xiafei" data-url="http://xf0516.github.io/2016/05/27/Xiafei/"></div>
+	<div class="ds-thread" data-thread-key="post4" data-title="分布式锁的使用场景" data-url="http://xf0516.github.io/2016/05/31/post4/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
