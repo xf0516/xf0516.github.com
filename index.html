@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -201,6 +201,64 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-post5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/14/post5/" class="article-date">
+  	<time datetime="2016-06-14T02:00:00.000Z" itemprop="datePublished">2016-06-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/14/post5/">Thread应用场景</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5C31;&#x4E0D;&#x505A;&#x8FC7;&#x591A;&#x63CF;&#x8FF0;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;</p>
+<p>&#x8D34;&#x4E00;&#x4E0B;&#x5173;&#x952E;&#x4EE3;&#x7801;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;HttpRequestContext&gt; instance = <span class="keyword">new</span> ThreadLocal&lt;HttpRequestContext&gt;();</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">HttpRequestContext</span><span class="params">()</span></span>{}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HttpRequestContext <span class="title">current</span><span class="params">()</span></span>{</span><br><span class="line">    HttpRequestContext info = instance.get();</span><br><span class="line">          <span class="keyword">if</span>(info == <span class="keyword">null</span>){</span><br><span class="line">            instance.set(<span class="keyword">new</span> HttpRequestContext());</span><br><span class="line">           }</span><br><span class="line">       <span class="keyword">return</span> instance.get();</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><figcaption><span>HttpRequestContext.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpRequestContext</span> </span>{</span><br><span class="line">true<span class="comment">/** &#x5BA2;&#x6237;&#x7AEF;&#x4FE1;&#x606F; */</span></span><br><span class="line">    <span class="keyword">private</span> ClientInfo client;</span><br><span class="line">true<span class="comment">/** &#x9700;&#x8981;&#x767B;&#x5F55; */</span></span><br><span class="line">true<span class="keyword">private</span> <span class="keyword">boolean</span> needLogin;</span><br><span class="line">true<span class="comment">/** &#x52A0;&#x5BC6; */</span></span><br><span class="line">true<span class="keyword">private</span> <span class="keyword">boolean</span> needEncrypt;</span><br><span class="line">true<span class="comment">/** &#x7434;&#x79CB;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x6233; */</span></span><br><span class="line">true<span class="keyword">private</span> <span class="keyword">long</span> startTimeMills;</span><br><span class="line">true</span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ClientInfo <span class="title">getClient</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> current().client;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setClient</span><span class="params">(ClientInfo client)</span> </span>{</span><br><span class="line">        current().client = client;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNeedLogin</span><span class="params">()</span> </span>{</span><br><span class="line">truetrue<span class="keyword">return</span> current().needLogin;</span><br><span class="line">true}</span><br><span class="line"></span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setNeedLogin</span><span class="params">(<span class="keyword">boolean</span> needLogin)</span> </span>{</span><br><span class="line">true    current().needLogin = needLogin;</span><br><span class="line">true}</span><br><span class="line">true</span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNeedEncrypt</span><span class="params">()</span> </span>{</span><br><span class="line">truetrue<span class="keyword">return</span> current().needEncrypt;</span><br><span class="line">true}</span><br><span class="line"></span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setNeedEncrypt</span><span class="params">(<span class="keyword">boolean</span> needEncrypt)</span> </span>{</span><br><span class="line">true    current().needEncrypt = needEncrypt;</span><br><span class="line">true}</span><br><span class="line"></span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getStartTimeMills</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> current().startTimeMills;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setStartTimeMills</span><span class="params">(<span class="keyword">long</span> startTimeMills)</span> </span>{</span><br><span class="line">        current().startTimeMills = startTimeMills;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;HttpRequestContext&gt; instance = <span class="keyword">new</span> ThreadLocal&lt;HttpRequestContext&gt;();</span><br><span class="line">true<span class="function"><span class="keyword">private</span> <span class="title">HttpRequestContext</span><span class="params">()</span></span>{}</span><br><span class="line">true</span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HttpRequestContext <span class="title">current</span><span class="params">()</span></span>{</span><br><span class="line">truetrueHttpRequestContext info = instance.get();</span><br><span class="line">truetrue<span class="keyword">if</span>(info == <span class="keyword">null</span>){</span><br><span class="line">truetruetrueinstance.set(<span class="keyword">new</span> HttpRequestContext());</span><br><span class="line">truetrue}</span><br><span class="line">truetrue<span class="keyword">return</span> instance.get();</span><br><span class="line">true}</span><br><span class="line">true</span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{</span><br><span class="line">truetrueinstance.remove();</span><br><span class="line">true}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-post4" class="article article-type-post" itemscope itemprop="blogPost">
   
