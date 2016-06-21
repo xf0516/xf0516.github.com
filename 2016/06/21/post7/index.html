@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>javaRSA加密相关测试 | 阿飞的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5E9F;&amp;#x8BDD;&amp;#x4E0D;&amp;#x591A;&amp;#x8BF4;&amp;#x76F4;&amp;#x63A5;&amp;#x4EE3;&amp;#x7801;&amp;#x52A0;&amp;#x6CE8;&amp;#x89C6;&amp;#x597D;&amp;#x4E86;1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaRSA加密相关测试">
+<meta property="og:url" content="http://xf0516.github.io/2016/06/21/post7/index.html">
+<meta property="og:site_name" content="阿飞的小站">
+<meta property="og:description" content="&amp;#x5E9F;&amp;#x8BDD;&amp;#x4E0D;&amp;#x591A;&amp;#x8BF4;&amp;#x76F4;&amp;#x63A5;&amp;#x4EE3;&amp;#x7801;&amp;#x52A0;&amp;#x6CE8;&amp;#x89C6;&amp;#x597D;&amp;#x4E86;1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
+<meta property="og:updated_time" content="2016-06-21T02:59:02.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaRSA加密相关测试">
+<meta name="twitter:description" content="&amp;#x5E9F;&amp;#x8BDD;&amp;#x4E0D;&amp;#x591A;&amp;#x8BF4;&amp;#x76F4;&amp;#x63A5;&amp;#x4EE3;&amp;#x7801;&amp;#x52A0;&amp;#x6CE8;&amp;#x89C6;&amp;#x597D;&amp;#x4E86;1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
+  
+    <link rel="alternative" href="/atom.xml" title="阿飞的小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/me.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏飞</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">玩java、Liunx、也喜欢前端</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/tags/java">java</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xf0516" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/x0516" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏飞</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/images/me.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏飞</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">玩java、Liunx、也喜欢前端</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/tags/java">java</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xf0516" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/x0516" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-post7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/21/post7/" class="article-date">
+  	<time datetime="2016-06-21T02:57:54.000Z" itemprop="datePublished">2016-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javaRSA加密相关测试
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5E9F;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#x76F4;&#x63A5;&#x4EE3;&#x7801;&#x52A0;&#x6CE8;&#x89C6;&#x597D;&#x4E86;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by &#x590F;&#x98DE; on 2016/6/21.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RsaTest</span> </span>{</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *</span><br><span class="line">     * &#x521B;&#x5EFA;&#x516C;&#x94A5;&#x79C1;&#x94A5;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String privateKeyFileName=<span class="string">&quot;key/private_base64.key&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String publicKeyFileName=<span class="string">&quot;key/public_base64.key&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String dataFileName=<span class="string">&quot;key/Data.data&quot;</span>;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">generatorKey</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        KeyPairGenerator keyPairGenerator=KeyPairGenerator.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        KeyPair keyPair=keyPairGenerator.generateKeyPair();</span><br><span class="line">        PublicKey publicKey= keyPair.getPublic();</span><br><span class="line">        PrivateKey privateKey=keyPair.getPrivate();</span><br><span class="line">        saveKey(publicKey,publicKeyFileName);</span><br><span class="line">        saveKey(privateKey,privateKeyFileName);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x79C1;&#x94A5;&#x52A0;&#x5BC6;,&#x4FDD;&#x5B58;&#x6570;&#x636E;</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">privateKeyEncryption</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Key privateKey=readKey(privateKeyFileName,<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        Cipher cipher=Cipher.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        <span class="comment">//&#x524D;&#x9762;&#x505A;&#x52A0;&#x5BC6;&#x65F6;&#x90FD;&#x662F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x52A0;&#x5BC6;&#x7684;&#x6570;&#x636E;&#x662F;&#x4E2D;&#x6587;&#x4F1A;&#x51FA;&#x73B0;&#x4E71;&#x7801;&#xFF0C;&#x73B0;&#x5728;&#x6539;&#x6210;&#x4E2D;&#x6587;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x4EE5;&#x4E0B;</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE,privateKey);</span><br><span class="line">        <span class="keyword">byte</span>[] results=cipher.doFinal(<span class="string">&quot;&#x6211;&#x662F;&#x8981;&#x88AB;&#x52A0;&#x5BC6;&#x7684;&#x6570;&#x636E;&#xFF01;&#x54C8;&#x54C8;&quot;</span>.getBytes(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">        <span class="comment">//&#x4FDD;&#x5B58;&#x5BC6;&#x94A5;,&#x7531;&#x4E8E;&#x662F;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x89E3;&#x5BC6;&#x65F6;&#x5F97;&#x7528;&#x79C1;&#x94A5;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8981;&#x5BF9;&#x4EA7;&#x751F;&#x7684;&#x79C1;&#x94A5;&#x8FDB;&#x884C;&#x5B58;&#x76D8;</span></span><br><span class="line">        saveData(base64Encoder(results).getBytes());</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x52A0;&#x5BC6;&#x540E;&#x7684;&#x6570;&#x636E;&#xFF1A;&quot;</span>+base64Encoder(results));</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x516C;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x4FDD;&#x5B58;&#x6570;&#x636E;</span><br><span class="line">     * <span class="doctag">@throws</span> Exception</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publicKeyEncryption</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Key publicKey=readKey(publicKeyFileName,<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        Cipher cipher=Cipher.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        <span class="comment">//&#x524D;&#x9762;&#x505A;&#x52A0;&#x5BC6;&#x65F6;&#x90FD;&#x662F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x52A0;&#x5BC6;&#x7684;&#x6570;&#x636E;&#x662F;&#x4E2D;&#x6587;&#x4F1A;&#x51FA;&#x73B0;&#x4E71;&#x7801;&#xFF0C;&#x73B0;&#x5728;&#x6539;&#x6210;&#x4E2D;&#x6587;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x4EE5;&#x4E0B;</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE,publicKey);</span><br><span class="line">        <span class="keyword">byte</span>[] results=cipher.doFinal(<span class="string">&quot;&#x6211;&#x662F;&#x8981;&#x88AB;&#x52A0;&#x5BC6;&#x7684;&#x6570;&#x636E;&#xFF01;&#x54C8;&#x54C8;&quot;</span>.getBytes(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">        <span class="comment">//&#x4FDD;&#x5B58;&#x5BC6;&#x94A5;,&#x7531;&#x4E8E;&#x662F;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x89E3;&#x5BC6;&#x65F6;&#x5F97;&#x7528;&#x79C1;&#x94A5;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8981;&#x5BF9;&#x4EA7;&#x751F;&#x7684;&#x79C1;&#x94A5;&#x8FDB;&#x884C;&#x5B58;&#x76D8;</span></span><br><span class="line">        saveData(base64Encoder(results).getBytes());</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#x540E;&#x7684;&#x6570;&#x636E;&#xFF1A;&quot;</span>+base64Encoder(results));</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x79C1;&#x94A5;&#x89E3;&#x5BC6;</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">privateKeyDecoder</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Key prvateKey=readKey(privateKeyFileName,<span class="keyword">false</span>);</span><br><span class="line">        Cipher cipher=Cipher.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE,prvateKey);</span><br><span class="line">        <span class="keyword">byte</span>[] data=cipher.doFinal(readData());</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x79C1;&#x94A5;&#x89E3;&#x5BC6;&#x540E;&#x7684;&#x6570;&#x636E; &quot;</span>+<span class="keyword">new</span> String(data));</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x516C;&#x94A5;&#x89E3;&#x5BC6;</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publicKeyDecoder</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Key publicKey=readKey(publicKeyFileName,<span class="keyword">true</span>);</span><br><span class="line">        Cipher cipher=Cipher.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE,publicKey);</span><br><span class="line">      <span class="keyword">byte</span>[] data=cipher.doFinal(readData());</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x516C;&#x94A5;&#x5319;&#x89E3;&#x5BC6;&#x540E;&#x7684;&#x6570;&#x636E;:&quot;</span>+<span class="keyword">new</span> String(data));</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x4FDD;&#x5B58;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">     * <span class="doctag">@param</span> results</span><br><span class="line">     * <span class="doctag">@param</span> dataName</span><br><span class="line">     * <span class="doctag">@throws</span> Exception</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(<span class="keyword">byte</span>[] results)</span><span class="keyword">throws</span> Exception</span>{</span><br><span class="line">        File file=<span class="keyword">new</span> File(dataFileName);</span><br><span class="line">        System.out.println(file.getAbsolutePath());</span><br><span class="line">        <span class="keyword">if</span>(!file.getParentFile().exists()){</span><br><span class="line">            file.getParentFile().mkdirs();</span><br><span class="line">            <span class="keyword">if</span>(!file.exists()){</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        FileOutputStream fosData=<span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">        fosData.write(results);</span><br><span class="line">        fosData.close();</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">     * <span class="doctag">@param</span> dataName</span><br><span class="line">     * <span class="doctag">@return</span> byte[]</span><br><span class="line">     * <span class="doctag">@throws</span> Exception</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">byte</span>[] readData()<span class="keyword">throws</span> Exception{</span><br><span class="line">        FileInputStream fisDat= <span class="keyword">new</span> FileInputStream(dataFileName);</span><br><span class="line">        <span class="comment">//&#x8BFB;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</span></span><br><span class="line">        BufferedInputStream bis=<span class="keyword">new</span> BufferedInputStream(fisDat);</span><br><span class="line">        <span class="keyword">byte</span>[] data=<span class="keyword">new</span> <span class="keyword">byte</span>[bis.available()];</span><br><span class="line">        bis.read(data);</span><br><span class="line">        <span class="keyword">return</span> base64Decoder(data);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">saveKey</span><span class="params">(Key key, String keyName)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">        File file=<span class="keyword">new</span> File(keyName);</span><br><span class="line">        System.out.println(file.getAbsolutePath());</span><br><span class="line">        <span class="keyword">if</span>(!file.getParentFile().exists()){</span><br><span class="line">            file.getParentFile().mkdirs();</span><br><span class="line">            <span class="keyword">if</span>(!file.exists()){</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        FileOutputStream foskey=<span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">        BufferedOutputStream bos=<span class="keyword">new</span> BufferedOutputStream(foskey);</span><br><span class="line">        bos.write(base64Encoder(key.getEncoded()).getBytes());</span><br><span class="line">        bos.close();</span><br><span class="line">        foskey.close();</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x8BFB;&#x53D6;&#x5BC6;&#x94A5;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">     * <span class="doctag">@param</span> keyName</span><br><span class="line">     * <span class="doctag">@param</span> isPublic true&#x8BFB;&#x53D6;&#x7684;&#x662F;&#x516C;&#x94A5;,false&#x8BFB;&#x53D6;&#x7684;&#x79C1;&#x94A5;</span><br><span class="line">     * <span class="doctag">@return</span> Key</span><br><span class="line">     * <span class="doctag">@throws</span> Exception</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  Key <span class="title">readKey</span><span class="params">(String keyName,<span class="keyword">boolean</span> isPublic)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">        FileInputStream fiskey=<span class="keyword">new</span> FileInputStream(keyName);</span><br><span class="line">        BufferedInputStream bis=<span class="keyword">new</span> BufferedInputStream(fiskey);</span><br><span class="line">        BASE64Decoder base64Decoder=<span class="keyword">new</span> BASE64Decoder();</span><br><span class="line">        <span class="keyword">byte</span>[] data=base64Decoder.decodeBuffer(bis);</span><br><span class="line">        bis.close();</span><br><span class="line">        fiskey.close();</span><br><span class="line">        KeySpec keySpec;</span><br><span class="line">        KeyFactory keyFactory = KeyFactory.getInstance(<span class="string">&quot;RSA&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(!isPublic) {</span><br><span class="line">            keySpec = <span class="keyword">new</span> PKCS8EncodedKeySpec(data);</span><br><span class="line">            <span class="keyword">return</span> keyFactory.generatePrivate(keySpec);</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            keySpec=<span class="keyword">new</span> X509EncodedKeySpec(data);</span><br><span class="line">            <span class="keyword">return</span> keyFactory.generatePublic(keySpec);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">base64Encoder</span><span class="params">(<span class="keyword">byte</span>[] data)</span></span>{</span><br><span class="line">        BASE64Encoder base64Encoder=<span class="keyword">new</span> BASE64Encoder();</span><br><span class="line">        <span class="keyword">return</span> base64Encoder.encode(data);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] base64Decoder(<span class="keyword">byte</span>[] data){</span><br><span class="line">        BASE64Decoder base64Decoder=<span class="keyword">new</span> BASE64Decoder();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="keyword">return</span> base64Decoder.decodeBuffer(<span class="keyword">new</span> String(data));</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/17/post6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整合springAOP分布式锁</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post7" data-title="javaRSA加密相关测试" data-url="http://xf0516.github.io/2016/06/21/post7/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xiafei"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 夏飞
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
